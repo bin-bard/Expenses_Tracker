@@ -12,9 +12,9 @@ import matplotlib.dates as mdates
 
 import os
 import datetime
-import calendar
+# import calendar
 import db
-import time
+# import time
 
 import pandas as pd
 import sqlite3
@@ -258,7 +258,7 @@ class App(ck.CTk):
 			header = ["ID", "Expense_Name", "Category", "Cost", "Time"]
 
 			self.table_frame = tk.Frame(self.main_view)
-			self.table_frame.place(x=100, y=270)
+			self.table_frame.place(x=50, y=320)
 
 			# add style
 			style = ttk.Style()
@@ -619,7 +619,7 @@ class App(ck.CTk):
 				return (file_name, format_timestamp(date_modified), file_type, size_kb)
 
 			def format_timestamp(timestamp):
-				return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(timestamp))
+				return datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
 
 			def delete_file_confirm(file_path):
 				confirm = messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete '{file_path}'?")
